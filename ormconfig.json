@@ -4,7 +4,7 @@
     "migrations": [
         "./src/database/migrations/*.ts"
     ],
-    "entitiens": [
+    "entities": [
         "./src/entities/*.ts"
     ],
     "cli": {
