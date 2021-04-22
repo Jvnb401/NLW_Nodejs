@@ -4,6 +4,7 @@ import { UsersRepository } from "../repositories/UsersRepository";
 
 
 class UsersService {
+    [x: string]: any;
     private userRepository: Repository<User>;
 
     constructor() {
@@ -21,6 +22,12 @@ class UsersService {
         const user = this.userRepository.create({ email, });
 
         await this.userRepository.save(user);
+
+        return user;
+    }
+
+    async findByEmail(email: string) {
+        const user = await this.userRepository.findOne({ email });
 
         return user;
     }
