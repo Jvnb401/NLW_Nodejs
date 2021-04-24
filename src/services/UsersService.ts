@@ -4,7 +4,6 @@ import { UsersRepository } from "../repositories/UsersRepository";
 
 
 class UsersService {
-    [x: string]: any;
     private userRepository: Repository<User>;
 
     constructor() {

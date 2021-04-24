@@ -35,14 +35,14 @@ export class CreateConnections1619116324859 implements MigrationInterface {
                         type: "timestamp",
                         default: "now()",
                     },
-                ]
-            })
+                ],
+            }),
         );
 
         await queryRunner.createForeignKey(
             "connections",
             new TableForeignKey({
-                name: "FKConnectionsUser",
+                name: "FKConnectionUser",
                 referencedTableName: "users",
                 referencedColumnNames: ["id"],
                 columnNames: ["user_id"],
@@ -53,7 +53,7 @@ export class CreateConnections1619116324859 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropForeignKey("connections", "FKConnectionsUsers");
+        await queryRunner.dropForeignKey("connections", "FKConnectionUser");
         await queryRunner.dropTable("connections")
     }
 

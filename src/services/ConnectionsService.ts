@@ -11,7 +11,7 @@ interface IConnectionCreate {
 }
 
 class ConnectionsService {
-    private connectionsRepository: Repository<Connection>
+    private connectionsRepository: Repository<Connection>;
 
     constructor() {
         this.connectionsRepository = getCustomRepository(ConnectionsRepository);
@@ -36,6 +36,15 @@ class ConnectionsService {
         })
 
         return connection;
+    }
+
+    async findAllWithoutAdmin() {
+        const connections = this.connectionsRepository.find({
+            where: { admin_id: null },
+            relations: ["user"],
+        });
+
+        return connections;
     }
 }
 
