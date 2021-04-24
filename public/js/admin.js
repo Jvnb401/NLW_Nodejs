@@ -19,7 +19,7 @@ Socket.on("admin_list_all_users", connections => {
 
 function call(id) {
     const connection = connectionsUsers.find(
-        (connection) => connection.socket_id = id
+        (connection) => connection.socket_id === id
     );
 
     console.log(connectionsUsers);
